@@ -1,0 +1,76 @@
+.tableRowBody:hover {
+    background-color: #F5F5F5;
+}
+
+.pagination {
+    height: 6vh;
+    width: 100%;
+    /* padding: 1.6vh 14px; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pagination>:first-child {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.paginationButton {
+    border-style: solid;
+    border-color: #E5E5E5;
+    border-width: 1px 0.5px;
+    background-color: #FFFF;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.paginPrev {
+    background-color: #FFFF;
+    height: 30px;
+
+    border: 1px solid #E5E5E5;
+    border-radius: 0 5px 5px 0;
+
+    text-align: center;
+    cursor: pointer;
+}
+
+.paginNext {
+    background-color: #FFFF;
+    height: 30px;
+
+    border: 1px solid #E5E5E5;
+    border-radius: 5px 0 0 5px;
+
+    text-align: center;
+    cursor: pointer;
+}
+
+.total {
+    background-color: #FFFF;
+
+    border-radius: 10px;
+    border: 1px solid #E5E5E5;
+    border-radius: 8px;
+
+    width: 8vw;
+    height: 32px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.total>p {
+    font-size: 0.75vw;
+}
+
+.total>img {
+    width: 1.3vw;
+}

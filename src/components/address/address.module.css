@@ -1,0 +1,33 @@
+.wide_field {
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+
+    padding: 0 30px;
+
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    color: #374957;
+}
+
+.wide_field>p {
+    margin-top: 19px;
+}
+
+.mapContainer {
+    width: 86%;
+    height: 31vh;
+
+    /* border: 1px solid #908787; */
+    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.mapSize {
+    max-height: 100%;
+    max-width: 100%;
+    border-radius: 10px;
+    background-color: white;
+}

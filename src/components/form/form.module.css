@@ -1,0 +1,267 @@
+.formItem {
+    width: 31.6vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.form_chip {
+    width: 10vw;
+    background: #ECF6FE;
+    border-radius: 10px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    justify-self: start;
+    padding: 10px 19px;
+
+    font-weight: 700;
+    font-size: 14px;
+    color: #49B2FF;
+}
+
+.form_field {
+    /* width: 31.6vw; */
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 30px;
+
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    color: #374957;
+}
+
+.wide_field {
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+
+    padding: 0 30px;
+
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    color: #374957;
+}
+
+.wide_field>p {
+    margin-top: 19px;
+}
+
+.form_radio {
+    display: flex;
+    align-items: center;
+}
+
+.radio_field {
+    width: 18vw;
+    display: flex;
+    gap: 1vw;
+}
+
+.date_field {
+    display: flex;
+}
+
+.date_field>button {
+    border-radius: 10px 0 0 10px;
+    background-color: #007AF5;
+    color: 'white';
+    /* width: 2vw !important; */
+}
+
+.date_field>button>img {
+    width: 60%;
+}
+
+.calendar_modal {
+    position: absolute;
+    height: 39.2vh;
+    width: 20vw;
+
+    /* margin-top: 42px; */
+    margin-right: 14vw;
+
+    background: #FFFFFF;
+    border: 1px solid #E5E5E5;
+    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+
+    transition: all 400ms;
+}
+
+.calendar_modal_close {
+    position: absolute;
+    width: 0;
+    height: 0;
+
+    /* margin-top: 42px; */
+    margin-right: 14vw;
+
+    opacity: 0;
+    transition: all 400ms ease-in;
+}
+
+.divider_icon {
+    margin-top: 10px;
+}
+
+/* upload */
+.upload {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 13px;
+    color: #919294;
+}
+
+.upload_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 10vw;
+    width: 10vw;
+    cursor: pointer;
+
+    background: #F5F6FA;
+    border: 1px dashed #CCCCCC;
+    border-radius: 10px;
+
+    position: relative;
+}
+
+.upload_container:hover {
+    background-color: hsl(228, 33%, 95.5%);
+    background-blend-mode: hard-light;
+    transition: all 100ms;
+    /* border: 1px solid blue; */
+}
+
+.upload_container:active {
+    background-color: hsl(228, 33%, 93%);
+    transition: all 100ms;
+}
+
+.upload_container>img {
+    border-radius: 10px;
+    max-height: 50%;
+}
+
+.uploaded_image {
+    height: 10vw;
+    width: 10vw;
+
+    border: 1px dashed #CCCCCC;
+    border-radius: 10px;
+    background-size: 80% !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+}
+
+.uploaded_image:hover {
+    transition: all 200ms ease;
+
+}
+.uploaded_attach {
+    height: 10vw;
+    width: 10vw;
+
+    border: 1px dashed #CCCCCC;
+    border-radius: 10px;
+    background-size: 40% !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+}
+
+.uploaded_attach:hover {
+    transition: all 200ms ease;
+}
+
+.upload_actions_container {
+    height: 10vw;
+    width: 10vw;
+
+    background: rgba(44, 44, 44, 0.4);
+    opacity: 0;
+    border-radius: 10px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    padding: 10px;
+
+    cursor: default;
+    position: absolute;
+    transition: all 200ms ease;
+}
+
+.upload_actions_container:hover {
+    opacity: 1;
+    transition: all 300ms ease;
+}
+
+.upload_actions {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.upload_action {
+    height: 30px;
+    width: 30px;
+    background-color: #FFFFFF;
+    border-radius: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    cursor: pointer;
+}
+
+.upload_action:hover {
+    background-color: hsl(228, 33%, 94%);
+    transition: all 400ms ease;
+}
+
+.upload_action>img {
+    height: 50%;
+}
+
+#upload_view {
+    height: 40px;
+    width: 40px;
+
+    /* background-color: rgba(50, 50, 50, 0.2); */
+    border-radius: 10px;
+
+    cursor: pointer;
+    transition: all 400ms ease;
+}
+
+#upload_view:hover {
+    transform: scale(1.3);
+
+    /* background-color: rgba(0, 0, 0, 0.3) !important; */
+    transition: all 400ms ease;
+}
+
+/* drop down field */
+.selectSort {
+    width: 234px;
+    height: 34px;
+    border-radius: 10px;
+    background-color: white;
+}

@@ -1,0 +1,147 @@
+.modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 10vh;
+
+    overflow-y: scroll;
+}
+
+.paper {
+    padding: 10px;
+
+    height: 60vh;
+    width: 44.5vw;
+
+    background-color: white;
+
+    outline: none;
+    border-radius: 8px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    gap: 2vh;
+}
+
+.topRow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.lastRow {
+    display: flex;
+    justify-content: end;
+}
+
+
+/* Add Modal */
+.paperAdd {
+    padding: 10px;
+    margin-top: 50vh;
+
+    height: 124vh;
+    width: 71%;
+
+    background-color: white;
+
+    outline: none;
+    border-radius: 8px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* loading */
+.loadingPage {
+    height: 56vh;
+    width: 44.5vw;
+
+    border-radius: 10px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #007AF5;
+}
+
+.loadingPage>p {
+    color: white;
+}
+
+.submitButtons {
+
+    /* margin: 10px 0; */
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+
+    /* border: 1px solid blue; */
+
+    position: relative;
+}
+
+.submitButtons>button {
+    /* height: 3.9vh; */
+    width: 9.5vw;
+    border-radius: 10px;
+
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.loadingIndicator {
+    position: absolute;
+    left: 0;
+
+    min-height: 55px;
+    min-width: 5vw;
+    padding: 0 20px;
+    background-color: #007AF5;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+
+    opacity: 0;
+
+    transition: all 200ms ease;
+    animation: appear 1s 200ms forwards;
+}
+
+.loadingIndicator>p {
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+@keyframes appear {
+    50%{
+        opacity: 0.5;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+
+/* Address Modal */
+.itemP{
+    text-align: right;
+    color: #919294;
+
+    /* transition: all 0.1s; */
+}
+
+.itemP:hover{
+    color: #374957;
+}

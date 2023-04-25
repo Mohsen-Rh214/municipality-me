@@ -1,0 +1,104 @@
+/* Search Input Component */
+.searchInput {
+    display: flex;
+    /* height: 34px; */
+    /* background-color: red; */
+}
+
+.searchInput>button {
+    border-radius: 10px 0 0 10px;
+    background-color: #007AF5;
+    color: 'white';
+
+    /* width: 4.1vw; */
+}
+
+.delete_btn {
+    /* background: #FF2B37; */
+    border-radius: 10px;
+
+    width: 7.5vw;
+    height: 34px;
+
+    color: #FFFF;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.addBtn {
+    height: 34px;
+    /* width: 8vw; */
+
+    display: flex;
+    gap: 8px;
+
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 15px;
+
+    color: #3569E7;
+
+    border: 1px solid #3569E7;
+    border-radius: 10px;
+}
+
+/* sort */
+.selectSort {
+    width: 234px;
+    height: 34px;
+    border-radius: 10px;
+    background-color: white;
+}
+
+/* modal */
+.modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 10vh;
+
+    overflow-y: scroll;
+}
+
+.paper {
+    padding: 10px;
+
+    height: 30vh;
+    width: 46vh;
+
+    background-color: white;
+
+    outline: none;
+    border-radius: 8px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+
+    gap: 2vh;
+}
+
+.paper>:first-child{
+    display: flex;
+}
+
+.paper>:last-child{
+    display: flex;
+    gap: 40px;
+}
+
+.paper>:last-child>button{
+    display: flex;
+    gap: 40px;
+
+    height: 35px;
+    width: 120px;
+    border-radius: 10px;
+}
+
+
+.paper>:last-child>button:first-of-type{
+    background-color: red;
+}

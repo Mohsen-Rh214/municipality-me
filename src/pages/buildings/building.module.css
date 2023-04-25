@@ -1,0 +1,23 @@
+/* loading */
+.isLoading,
+.loadingPage {
+    width: 100%;
+    min-height: 66vh;
+
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 122, 245, 0.65);
+}
+
+.isLoading>p,
+.loadingPage>p {
+    color: white;
+}
+
+.loadingPage {
+    border-radius: 10px;
+    min-height: 76vh;
+}
