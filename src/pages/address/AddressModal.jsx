@@ -42,7 +42,11 @@ const AddressModal = ({ open, onClose, openAdd, onSelect }) => {
           setIsLoading(false)
           setHasFetched(true)
           if (respond.data.next) {
-            setNextUrl(respond.data.next.slice(28))
+
+
+
+            // this number needs changing sometimes
+            setNextUrl(respond.data.next.slice(30))
             setItemsCount(respond.data.count)
           }
         }
@@ -125,7 +129,11 @@ const AddressModal = ({ open, onClose, openAdd, onSelect }) => {
                   ...response.data.results.features,
                 ])
                 if (response.data.next) {
-                  setNextUrl(response.data.next.slice(28))
+
+
+
+                  // this number needs changing sometimes
+                  setNextUrl(response.data.next.slice(30))
                 }
               })
               .catch((e) => {

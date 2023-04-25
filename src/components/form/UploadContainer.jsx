@@ -14,7 +14,7 @@ import uploadView from "../../assets/svg/upload-view.svg"
 import uploadClip from "../../assets/svg/upload-attach-clip.svg"
 
 
-const UploadContainer = ({ desc, attach, contentTypeId, objId }) => {
+const UploadContainer = ({ desc, attach, contentTypeId, objId, uploaded }) => {
   const hiddenFileInput = React.useRef(null)
   const [selectedFile, setSelectedFile] = useState(null)
   const [fileImg, setFileImg] = useState(null)
@@ -22,40 +22,8 @@ const UploadContainer = ({ desc, attach, contentTypeId, objId }) => {
   // / --- >>>> *** get Default
   const uploadEndPoint = 'asset/api/Asset/'
 
-
-  // Get Uloaded files
-  const [uploaded, setUploaded] = useState()
+  // Get Uploaded files
   const [isUploaded, setIsUploaded] = useState(null)
-
-  // const [apiCallFlag, setApiCallFlag] = useState(false)
-  let apiCallFlag = false
-
-  const getUploaded = () => {
-
-    // condition to prevent calling 24 times
-    // apiCallFlag = false
-
-    if (apiCallFlag === true) return
-
-    apiCallFlag = true
-
-    mayadinAx.get(uploadEndPoint, {
-      params: {
-        object_id: objId,
-        content_type: contentTypeId,
-      }
-    })
-      .then(res => {
-        console.log('uploads: ', res.data.results)
-        setUploaded(res.data.results)
-      })
-      .catch(e => console.log('error: ', e))
-
-
-  }
-
-  useEffect(() => { getUploaded() }, [])
-
 
   // select file
   const handleSelectFile = (event) => {
@@ -130,11 +98,11 @@ const UploadContainer = ({ desc, attach, contentTypeId, objId }) => {
 
   // this method is for DELETE function,
   // it checks again if a file is uploaded or not
-  // if uploaded, gets the id for furthur delete
-  useEffect(() => {
-    apiCallFlag = false
-    getUploaded()
-  }, [openUpload])
+  // // if uploaded, gets the id for furthur delete
+  // useEffect(() => {
+  //   apiCallFlag = false
+  //   getUploaded()
+  // }, [openUpload])
 
 
 

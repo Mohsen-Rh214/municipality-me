@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useCallback } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import { mayadinAx } from "../../services/AxiosRequest"
 import moment from "moment-jalaali"
@@ -41,28 +41,31 @@ const EditPerson = () => {
     const { personId } = useParams()
 
     // form values and validations
-    const [personData, setPersonData] = useState([])
+    const [personData, setPersonData] = useState()
     const [loadingPage, setIsLoadingPage] = useState(true)
 
     let endpoint = `auth/api/Citizen/${personId}/`
 
-    const getDetails = () => {
+    const getDetails = useCallback(() => {
+
+        console.log('function res')
+
         mayadinAx.get(endpoint)
             .then(res => {
                 setPersonData(res.data)
-                console.log('ress: ', res.data)
+                // console.log('ress: ', res.data)
             })
             .catch((e) => {
                 console.log('error :', e)
                 setPersonData('empty')
             })
             .finally(() => setIsLoadingPage(false))
-    }
+    }, [])
 
     // get details at first render
-    useEffect(() => {
-        getDetails()
-    }, [])
+    // useEffect(() => {
+    //     getDetails()
+    // }, [])
 
 
     //   init States
@@ -107,29 +110,31 @@ const EditPerson = () => {
 
 
     // -- initialize init states
-    useEffect(() => {
-        if (personData !== []) {
-            // text field
-            setFirstName(initFirst || null)
-            setLastName(initLast || null)
-            setFather(initFather || null)
-            setGender(initGender || null)
-            setCertificateNum(initCerti || null)
-            setNationNum(initNatNum || null)
-            setBirthday(initBirth || null)
-            setBirthCity(initBirthCity || null)
-            setGetCertCity(initGetCertCity || null)
-            // setProvince(initProvince || null)
-            // setCity(initCity || null)
-            setPostaltCode(initPost || null)
-            setAddress(initAddress || null)
-            setMobileNum(initMobile || null)
-            setHomeNum(inithomeNum || null)
-            setEmail(initEmail || null)
+    // useEffect(() => {
+    //     if (personData !== []) {
+    //         // text field
+    //         setFirstName(initFirst || null)
+    //         setLastName(initLast || null)
+    //         setFather(initFather || null)
+    //         setGender(initGender || null)
+    //         setCertificateNum(initCerti || null)
+    //         setNationNum(initNatNum || null)
+    //         setBirthday(initBirth || null)
+    //         setBirthCity(initBirthCity || null)
+    //         setGetCertCity(initGetCertCity || null)
+    //         // setProvince(initProvince || null)
+    //         // setCity(initCity || null)
+    //         setPostaltCode(initPost || null)
+    //         setAddress(initAddress || null)
+    //         setMobileNum(initMobile || null)
+    //         setHomeNum(inithomeNum || null)
+    //         setEmail(initEmail || null)
 
-            setEditBirthday(false)
-        }
-    }, [personData])
+    //         setEditBirthday(false)
+
+    //         console.log('this')
+    //     }
+    // }, [personData])
 
     // --- *** >>> Handlers <<< *** --- //
 
@@ -153,6 +158,8 @@ const EditPerson = () => {
         // set validation to no error
         setValidAddress(false)
     }
+
+
 
     const timetoShow = (date, api) => {
         if (date === undefined) return " "
@@ -388,10 +395,6 @@ const EditPerson = () => {
 
 
 
-
-
-
-
     // *** ---- >>> U P L O A D <<< ---- *** //
 
     const uploadContainersList = [
@@ -404,6 +407,85 @@ const EditPerson = () => {
     ]
 
     const ContentTypeId = 2 // -- > backend id for accounts: user
+
+    // upload api
+
+    // / --- >>>> *** get Default
+    const uploadEndPoint = 'asset/api/Asset/'
+
+
+    // Get Uploaded files
+    const [uploaded, setUploaded] = useState()
+
+    // const [apiCallFlag, setApiCallFlag] = useState(false)
+    let apiCallFlag = false
+
+    const getUploaded = useCallback(() => {
+
+        // condition to prevent calling 24 times
+        // apiCallFlag = false
+
+        if (apiCallFlag === true) return
+
+        apiCallFlag = true
+
+        mayadinAx.get(uploadEndPoint, {
+            params: {
+                object_id: personId,
+                content_type: ContentTypeId,
+            }
+        })
+            .then(res => {
+                console.log('uploads: ', res.data.results)
+                setUploaded(res.data.results)
+            })
+            .catch(e => console.log('error: ', e))
+
+
+    }, [])
+
+
+
+    useEffect(() => {
+
+        getUploaded()
+
+        if (personData === undefined) {
+
+            // console.log('personData then: ', personData)
+
+            getDetails()
+
+
+        } else {
+
+
+            // console.log('personData now: ', personData)
+
+            // text field
+            setFirstName(initFirst || null)
+            setLastName(initLast || null)
+            setFather(initFather || null)
+            setGender(initGender || null)
+            setCertificateNum(initCerti || null)
+            setNationNum(initNatNum || null)
+            setBirthday(initBirth || null)
+            setBirthCity(initBirthCity || null)
+            setGetCertCity(initGetCertCity || null)
+            // setProvince(initProvince || null)
+            // setCity(initCity || null)
+            setPostaltCode(initPost || null)
+            setAddress(initAddress || null)
+            setMobileNum(initMobile || null)
+            setHomeNum(inithomeNum || null)
+            setEmail(initEmail || null)
+
+            setEditBirthday(false)
+
+
+        }
+
+    }, [personData])
 
     return (
         <>
@@ -803,6 +885,8 @@ const EditPerson = () => {
 
                                                 contentTypeId={ContentTypeId}
                                                 objId={personId}
+
+                                                uploaded={uploaded}
                                             />
                                         })}
 
